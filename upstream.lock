@@ -1,0 +1,10 @@
+# Sources this theme is built from. Targets the GNOME 50 stack.
+
+# Fetched into vendor/ by tools/fetch-upstream.sh and pinned exactly.
+libadwaita   1.9.3   https://gitlab.gnome.org/GNOME/libadwaita     colour tokens, reference only
+gnome-shell  50.4    https://gitlab.gnome.org/GNOME/gnome-shell    Shell sass, recompiled with our colours
+adw-gtk3     v6.5    https://github.com/lassekongo83/adw-gtk3      GTK 3 base, bundled into every theme
+gtksourceview 5.20.0 https://gitlab.gnome.org/GNOME/gtksourceview  editor style schemes, neutrals substituted
+
+# Referenced at runtime from inside libgtk, so there is nothing to pin or fetch:
+#   GTK 4  resource:///org/gtk/libgtk/theme/Default/Default-{light,dark}.css
