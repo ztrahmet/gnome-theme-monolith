@@ -1,0 +1,5 @@
+// Monolith — GTK 4 stylesheet: classic-light.
+@import "colors/classic-light";
+@import "emit";
+
+@include emit-gtk4();

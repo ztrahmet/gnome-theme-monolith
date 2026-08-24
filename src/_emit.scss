@@ -1,0 +1,125 @@
+// Monolith — token emission.
+//
+// Emits colour tokens as both @define-color (GTK named-colour form)
+// and --custom-property (CSS custom-property form).
+
+@mixin emit-colors() {
+  @define-color window_bg_color #{$window-bg-color};
+  @define-color window_fg_color #{$window-fg-color};
+  @define-color view_bg_color #{$view-bg-color};
+  @define-color view_fg_color #{$view-fg-color};
+  @define-color headerbar_bg_color #{$headerbar-bg-color};
+  @define-color headerbar_fg_color #{$headerbar-fg-color};
+  @define-color headerbar_border_color #{$headerbar-border-color};
+  @define-color headerbar_backdrop_color #{$headerbar-backdrop-color};
+  @define-color headerbar_shade_color #{$headerbar-shade-color};
+  @define-color headerbar_darker_shade_color #{$headerbar-darker-shade-color};
+  @define-color sidebar_bg_color #{$sidebar-bg-color};
+  @define-color sidebar_fg_color #{$sidebar-fg-color};
+  @define-color sidebar_backdrop_color #{$sidebar-backdrop-color};
+  @define-color sidebar_shade_color #{$sidebar-shade-color};
+  @define-color sidebar_border_color #{$sidebar-border-color};
+  @define-color secondary_sidebar_bg_color #{$secondary-sidebar-bg-color};
+  @define-color secondary_sidebar_fg_color #{$secondary-sidebar-fg-color};
+  @define-color secondary_sidebar_backdrop_color #{$secondary-sidebar-backdrop-color};
+  @define-color secondary_sidebar_shade_color #{$secondary-sidebar-shade-color};
+  @define-color secondary_sidebar_border_color #{$secondary-sidebar-border-color};
+  @define-color card_bg_color #{$card-bg-color};
+  @define-color card_fg_color #{$card-fg-color};
+  @define-color card_shade_color #{$card-shade-color};
+  @define-color dialog_bg_color #{$dialog-bg-color};
+  @define-color dialog_fg_color #{$dialog-fg-color};
+  @define-color popover_bg_color #{$popover-bg-color};
+  @define-color popover_fg_color #{$popover-fg-color};
+  @define-color popover_shade_color #{$popover-shade-color};
+  @define-color thumbnail_bg_color #{$thumbnail-bg-color};
+  @define-color thumbnail_fg_color #{$thumbnail-fg-color};
+  @define-color shade_color #{$shade-color};
+  @define-color scrollbar_outline_color #{$scrollbar-outline-color};
+  @define-color accent_bg_color #{$accent-bg-color};
+  @define-color accent_fg_color #{$accent-fg-color};
+  @define-color accent_color #{$accent-bg-color};
+
+  @define-color light_1 #{$light-1};
+  @define-color light_2 #{$light-2};
+  @define-color light_3 #{$light-3};
+  @define-color light_4 #{$light-4};
+  @define-color light_5 #{$light-5};
+  @define-color dark_1 #{$dark-1};
+  @define-color dark_2 #{$dark-2};
+  @define-color dark_3 #{$dark-3};
+  @define-color dark_4 #{$dark-4};
+  @define-color dark_5 #{$dark-5};
+
+  :root {
+    --window-bg-color: #{$window-bg-color};
+    --window-fg-color: #{$window-fg-color};
+    --view-bg-color: #{$view-bg-color};
+    --view-fg-color: #{$view-fg-color};
+    --headerbar-bg-color: #{$headerbar-bg-color};
+    --headerbar-fg-color: #{$headerbar-fg-color};
+    --headerbar-border-color: #{$headerbar-border-color};
+    --headerbar-backdrop-color: #{$headerbar-backdrop-color};
+    --headerbar-shade-color: #{$headerbar-shade-color};
+    --headerbar-darker-shade-color: #{$headerbar-darker-shade-color};
+    --sidebar-bg-color: #{$sidebar-bg-color};
+    --sidebar-fg-color: #{$sidebar-fg-color};
+    --sidebar-backdrop-color: #{$sidebar-backdrop-color};
+    --sidebar-shade-color: #{$sidebar-shade-color};
+    --sidebar-border-color: #{$sidebar-border-color};
+    --secondary-sidebar-bg-color: #{$secondary-sidebar-bg-color};
+    --secondary-sidebar-fg-color: #{$secondary-sidebar-fg-color};
+    --secondary-sidebar-backdrop-color: #{$secondary-sidebar-backdrop-color};
+    --secondary-sidebar-shade-color: #{$secondary-sidebar-shade-color};
+    --secondary-sidebar-border-color: #{$secondary-sidebar-border-color};
+    --card-bg-color: #{$card-bg-color};
+    --card-fg-color: #{$card-fg-color};
+    --card-shade-color: #{$card-shade-color};
+    --dialog-bg-color: #{$dialog-bg-color};
+    --dialog-fg-color: #{$dialog-fg-color};
+    --popover-bg-color: #{$popover-bg-color};
+    --popover-fg-color: #{$popover-fg-color};
+    --popover-shade-color: #{$popover-shade-color};
+    --thumbnail-bg-color: #{$thumbnail-bg-color};
+    --thumbnail-fg-color: #{$thumbnail-fg-color};
+    --shade-color: #{$shade-color};
+    --scrollbar-outline-color: #{$scrollbar-outline-color};
+    --accent-bg-color: #{$accent-bg-color};
+    --accent-fg-color: #{$accent-fg-color};
+    --accent-color: #{$accent-bg-color};
+    --active-toggle-bg-color: #{$active-toggle-bg-color};
+    --active-toggle-fg-color: #{$active-toggle-fg-color};
+    --overview-bg-color: #{$overview-bg-color};
+    --overview-fg-color: #{$overview-fg-color};
+    --border-opacity: #{$border-alpha * 100%};
+
+    --light-1: #{$light-1};
+    --light-2: #{$light-2};
+    --light-3: #{$light-3};
+    --light-4: #{$light-4};
+    --light-5: #{$light-5};
+    --dark-1: #{$dark-1};
+    --dark-2: #{$dark-2};
+    --dark-3: #{$dark-3};
+    --dark-4: #{$dark-4};
+    --dark-5: #{$dark-5};
+  }
+}
+
+@mixin emit-chrome() {
+  toast { background: #{$toast-bg-color}; }
+  tooltip.background { background-color: #{$tooltip-bg-color}; }
+  window.csd { outline-color: #{$window-outline-color}; }
+
+  switch:checked > slider,
+  switch:checked:hover > slider,
+  switch:checked:active > slider {
+    background-color: #{$accent-fg-color};
+  }
+}
+
+// Single entry point for GTK 4 colour emission.
+@mixin emit-gtk4() {
+  @include emit-colors();
+  @include emit-chrome();
+}
