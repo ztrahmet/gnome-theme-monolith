@@ -1,0 +1,78 @@
+// Monolith Black — pitch black variant.
+// Pure dark canvas with well-toned neutral surfaces. Monochrome accent.
+
+// ── GTK named colors ────────────────────────────────────────────────────
+$window-bg-color: #000000;
+$window-fg-color: #e4e4e4;
+$view-bg-color: #000000;
+$view-fg-color: #e4e4e4;
+$headerbar-bg-color: #000000;
+$headerbar-fg-color: #e4e4e4;
+$headerbar-border-color: #e4e4e4;
+$headerbar-backdrop-color: #000000;
+$headerbar-shade-color: #2a2a2a;
+$headerbar-darker-shade-color: rgba(0, 0, 0, .9);
+$sidebar-bg-color: #000000;
+$sidebar-fg-color: #e4e4e4;
+$sidebar-backdrop-color: #000000;
+$sidebar-shade-color: rgba(0, 0, 0, .25);
+$sidebar-border-color: #2a2a2a;
+$secondary-sidebar-bg-color: #000000;
+$secondary-sidebar-fg-color: #e4e4e4;
+$secondary-sidebar-backdrop-color: #000000;
+$secondary-sidebar-shade-color: rgba(0, 0, 0, .25);
+$secondary-sidebar-border-color: #2a2a2a;
+$card-bg-color: #0e0e0e;
+$card-fg-color: #e4e4e4;
+$card-shade-color: #2a2a2a;
+$dialog-bg-color: #161616;
+$dialog-fg-color: #e4e4e4;
+$popover-bg-color: #161616;
+$popover-fg-color: #e4e4e4;
+$popover-shade-color: rgba(0, 0, 0, .25);
+$thumbnail-bg-color: #1e1e1e;
+$thumbnail-fg-color: #e4e4e4;
+$shade-color: rgba(0, 0, 0, .25);
+$scrollbar-outline-color: rgba(0, 0, 0, .95);
+$accent-bg-color: #e4e4e4;
+$accent-fg-color: #000000;
+
+// ── Custom properties (vars) ────────────────────────────────────────────
+$active-toggle-bg-color: #262626;
+$active-toggle-fg-color: #e4e4e4;
+$overview-bg-color: #000000;
+$overview-fg-color: #e4e4e4;
+$border-alpha: .18;
+
+// ── Palette tokens (pitch black / neutral scale) ────────────────────────
+$light-1: #ffffff;
+$light-2: #f6f6f6;
+$light-3: #dddddd;
+$light-4: #c0c0c0;
+$light-5: #999999;
+$dark-1: #777777;
+$dark-2: #5e5e5e;
+$dark-3: #1a1a1a;
+$dark-4: #0a0a0a;
+$dark-5: #000000;
+
+// ── Chrome (libadwaita overrides) ───────────────────────────────────────
+$toast-bg-color: #444444;
+$tooltip-bg-color: #161616;
+$window-outline-color: #5a5a5a;
+
+// ── GTK 3 specific ─────────────────────────────────────────────────────
+$borders: #2a2a2a;
+$insensitive-bg-color: #1e1e1e;
+$insensitive-fg-color: #777777;
+
+// ── GNOME Shell bases ───────────────────────────────────────────────────
+$shell_base_color: #000000;
+$shell_bg_color: #161616;
+$shell_fg_color: #e4e4e4;
+$shell_osd_bg_color: #161616;
+$shell_system_base_color: #000000;
+$shell_system_fg_color: #e4e4e4;
+$shell_panel_bg_color: #000000;
+$shell_panel_fg_color: #e4e4e4;
+$shell_card_bg_color: #1a1a1a;

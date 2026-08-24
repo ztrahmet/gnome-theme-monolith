@@ -1,0 +1,78 @@
+// Monolith Classic — light variant.
+// GNOME 47's neutral grays, the blue cast removed. Monochrome accent.
+
+// ── GTK named colors ────────────────────────────────────────────────────
+$window-bg-color: #fafafa;
+$window-fg-color: rgba(0, 0, 0, .8);
+$view-bg-color: #ffffff;
+$view-fg-color: rgba(0, 0, 0, .8);
+$headerbar-bg-color: #ffffff;
+$headerbar-fg-color: rgba(0, 0, 0, .8);
+$headerbar-border-color: rgba(0, 0, 0, .8);
+$headerbar-backdrop-color: #fafafa;
+$headerbar-shade-color: rgba(0, 0, 0, .12);
+$headerbar-darker-shade-color: rgba(0, 0, 0, .12);
+$sidebar-bg-color: #ebebeb;
+$sidebar-fg-color: rgba(0, 0, 0, .8);
+$sidebar-backdrop-color: #f2f2f2;
+$sidebar-shade-color: rgba(0, 0, 0, .07);
+$sidebar-border-color: rgba(0, 0, 0, .07);
+$secondary-sidebar-bg-color: #f3f3f3;
+$secondary-sidebar-fg-color: rgba(0, 0, 0, .8);
+$secondary-sidebar-backdrop-color: #f6f6f6;
+$secondary-sidebar-shade-color: rgba(0, 0, 0, .07);
+$secondary-sidebar-border-color: rgba(0, 0, 0, .07);
+$card-bg-color: #ffffff;
+$card-fg-color: rgba(0, 0, 0, .8);
+$card-shade-color: rgba(0, 0, 0, .07);
+$dialog-bg-color: #fafafa;
+$dialog-fg-color: rgba(0, 0, 0, .8);
+$popover-bg-color: #ffffff;
+$popover-fg-color: rgba(0, 0, 0, .8);
+$popover-shade-color: rgba(0, 0, 0, .07);
+$thumbnail-bg-color: #ffffff;
+$thumbnail-fg-color: rgba(0, 0, 0, .8);
+$shade-color: rgba(0, 0, 0, .07);
+$scrollbar-outline-color: #ffffff;
+$accent-bg-color: #242424;
+$accent-fg-color: #fafafa;
+
+// ── Custom properties (vars) ────────────────────────────────────────────
+$active-toggle-bg-color: #ffffff;
+$active-toggle-fg-color: rgba(0, 0, 0, .8);
+$overview-bg-color: #f3f3f3;
+$overview-fg-color: rgba(0, 0, 0, .8);
+$border-alpha: .15;
+
+// ── Palette tokens (de-tinted GNOME neutrals) ───────────────────────────
+$light-1: #ffffff;
+$light-2: #f6f6f6;
+$light-3: #dddddd;
+$light-4: #c0c0c0;
+$light-5: #999999;
+$dark-1: #777777;
+$dark-2: #5e5e5e;
+$dark-3: #383838;
+$dark-4: #242424;
+$dark-5: #000000;
+
+// ── Chrome (libadwaita overrides) ───────────────────────────────────────
+$toast-bg-color: #505050;
+$tooltip-bg-color: rgba(0, 0, 0, .8);
+$window-outline-color: rgba(255, 255, 255, .07);
+
+// ── GTK 3 specific ─────────────────────────────────────────────────────
+$borders: rgba(0, 0, 0, .15);
+$insensitive-bg-color: #f2f2f2;
+$insensitive-fg-color: rgba(0, 0, 0, .4);
+
+// ── GNOME Shell bases ───────────────────────────────────────────────────
+$shell_base_color: #ffffff;
+$shell_bg_color: #fafafa;
+$shell_fg_color: #222222;
+$shell_osd_bg_color: #2e2e2e;
+$shell_system_base_color: #222222;
+$shell_system_fg_color: #fafafa;
+$shell_panel_bg_color: #fafafa;
+$shell_panel_fg_color: #222222;
+$shell_card_bg_color: #ffffff;

@@ -1,0 +1,78 @@
+// Monolith Classic — dark variant.
+// GNOME 47's neutral grays, the blue cast removed. Monochrome accent.
+
+// ── GTK named colors ────────────────────────────────────────────────────
+$window-bg-color: #222222;
+$window-fg-color: #ffffff;
+$view-bg-color: #1d1d1d;
+$view-fg-color: #ffffff;
+$headerbar-bg-color: #2e2e2e;
+$headerbar-fg-color: #ffffff;
+$headerbar-border-color: #ffffff;
+$headerbar-backdrop-color: #222222;
+$headerbar-shade-color: rgba(0, 0, 0, .36);
+$headerbar-darker-shade-color: rgba(0, 0, 0, .9);
+$sidebar-bg-color: #2e2e2e;
+$sidebar-fg-color: #ffffff;
+$sidebar-backdrop-color: #282828;
+$sidebar-shade-color: rgba(0, 0, 0, .25);
+$sidebar-border-color: rgba(0, 0, 0, .36);
+$secondary-sidebar-bg-color: #282828;
+$secondary-sidebar-fg-color: #ffffff;
+$secondary-sidebar-backdrop-color: #252525;
+$secondary-sidebar-shade-color: rgba(0, 0, 0, .25);
+$secondary-sidebar-border-color: rgba(0, 0, 0, .36);
+$card-bg-color: rgba(255, 255, 255, .08);
+$card-fg-color: #ffffff;
+$card-shade-color: rgba(0, 0, 0, .36);
+$dialog-bg-color: #363636;
+$dialog-fg-color: #ffffff;
+$popover-bg-color: #363636;
+$popover-fg-color: #ffffff;
+$popover-shade-color: rgba(0, 0, 0, .25);
+$thumbnail-bg-color: #393939;
+$thumbnail-fg-color: #ffffff;
+$shade-color: rgba(0, 0, 0, .25);
+$scrollbar-outline-color: rgba(0, 0, 0, .95);
+$accent-bg-color: #e4e4e4;
+$accent-fg-color: #222222;
+
+// ── Custom properties (vars) ────────────────────────────────────────────
+$active-toggle-bg-color: rgba(255, 255, 255, .2);
+$active-toggle-fg-color: #ffffff;
+$overview-bg-color: #282828;
+$overview-fg-color: #ffffff;
+$border-alpha: .15;
+
+// ── Palette tokens (de-tinted GNOME neutrals) ───────────────────────────
+$light-1: #ffffff;
+$light-2: #f6f6f6;
+$light-3: #dddddd;
+$light-4: #c0c0c0;
+$light-5: #999999;
+$dark-1: #777777;
+$dark-2: #5e5e5e;
+$dark-3: #383838;
+$dark-4: #242424;
+$dark-5: #000000;
+
+// ── Chrome (libadwaita overrides) ───────────────────────────────────────
+$toast-bg-color: #505050;
+$tooltip-bg-color: rgba(0, 0, 0, .8);
+$window-outline-color: rgba(255, 255, 255, .07);
+
+// ── GTK 3 specific ─────────────────────────────────────────────────────
+$borders: rgba(255, 255, 255, .15);
+$insensitive-bg-color: #282828;
+$insensitive-fg-color: rgba(255, 255, 255, .4);
+
+// ── GNOME Shell bases ───────────────────────────────────────────────────
+$shell_base_color: #222222;
+$shell_bg_color: #363636;
+$shell_fg_color: #ffffff;
+$shell_osd_bg_color: #2e2e2e;
+$shell_system_base_color: #222222;
+$shell_system_fg_color: #fafafa;
+$shell_panel_bg_color: #000000;
+$shell_panel_fg_color: #ffffff;
+$shell_card_bg_color: #474747;
