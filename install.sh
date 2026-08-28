@@ -33,7 +33,22 @@ RAW_URL="https://raw.githubusercontent.com/$REPO/main/install.sh"
 dest="${XDG_DATA_HOME:-$HOME/.local/share}/themes"
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 overlay="$config/gtk-4.0/gtk.css"
+SCHEMES_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/gtksourceview-5/styles"
 
+# Apps exposing a GtkSourceView scheme setting, as schema:key. A schema that is
+# not installed is skipped, so listing an app you do not have costs nothing.
+# Matching on key name alone would catch org.gnome.desktop.interface color-scheme,
+# which is the desktop light/dark preference and must never be touched.
+SCHEME_APPS="
+org.gnome.TextEditor:style-scheme
+org.gnome.builder.editor:style-scheme-name
+org.gnome.gedit.preferences.editor:scheme
+org.gnome.meld:style-scheme
+org.gnome.gnome-latex.preferences.editor:scheme
+org.gnome.gitg.preferences.view.files:style-scheme
+org.gnome.Devhelp.state.main.content:style-scheme
+org.gnome.sourceview.preferences:style-scheme
+"
 
 # ~/bin is honoured when it already exists, since a user who made it usually
 # has it on PATH; otherwise the XDG location.

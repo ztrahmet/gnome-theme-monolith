@@ -168,6 +168,16 @@ for v in classic-light classic-dark black; do
   fi
 done
 
+# 7. Read-only installer paths must run clean. bash -n cannot catch an unbound
+# variable, so the script is actually executed.
+for flag in --status --help; do
+  if out="$("$root/install.sh" "$flag" 2>&1)"; then
+    ok "install.sh $flag runs clean"
+  else
+    fail "install.sh $flag failed: $(printf '%s' "$out" | tail -1)"
+  fi
+done
+
 if [ $failed -eq 0 ]; then
   echo "all checks passed"
   exit 0
