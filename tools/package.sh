@@ -19,7 +19,10 @@ stage="$dist/Monolith-$version"
 mkdir -p "$stage"
 cp -r "$themes" "$stage/themes"
 [ -d "$root/build/schemes" ] && cp -r "$root/build/schemes" "$stage/schemes"
-install -m644 "$root/README.md" "$stage/README.md"
+[ -d "$root/build/icons" ] && cp -a "$root/build/icons" "$stage/icons"
+# The archive gets its own README: manual install steps, not repo docs.
+sed "s|@VERSION@|$version|g" "$root/src/README.dist.md" > "$stage/README.md"
+chmod 644 "$stage/README.md"
 install -m644 "$root/LICENSE" "$stage/LICENSE"
 
 tar -C "$dist" -cJf "$dist/Monolith-$version.tar.xz" "Monolith-$version"
