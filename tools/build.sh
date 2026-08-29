@@ -97,6 +97,14 @@ assemble() {
   echo "  $name"
 }
 
+# ── Icon theme ───────────────────────────────────────────────────────────
+# One neutral set serves every variant, so it is copied rather than compiled.
+# -a keeps the folder-open -> folder symlink a symlink.
+icons="$build/icons/Monolith"
+mkdir -p "$icons"
+cp -a "$src/icons/index.theme" "$src/icons/scalable" "$icons/"
+echo "icon theme in build/icons/"
+
 echo "assembling themes:"
 assemble Monolith-Classic      classic-light "Monolith Classic, light" classic-dark
 assemble Monolith-Classic-dark classic-dark  "Monolith Classic, dark"  classic-light

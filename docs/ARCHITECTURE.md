@@ -14,6 +14,7 @@ src/
   gtk-4.0/                  GTK 4 entry points
   gtk-3.0/                  GTK 3 base and entry points
   gnome-shell/              GNOME Shell base and entry points
+  icons/                    Monochrome folder icons + icon theme metadata
   index.theme.in            Theme metadata template
 install.sh                  Dual-role installer & CLI manager
 tools/
@@ -30,6 +31,7 @@ The build script compiles 3 CSS variants and assembles 4 theme packages (`Monoli
 
 - **GTK 4**: Compiles each variant with `sassc`. Assembles `gtk.css` (with Default base import) for plain GTK 4 apps, and `libadwaita.css` overlay (with prefers-color-scheme media queries for paired themes) for libadwaita apps.
 - **GTK 3**: Bundles upstream `adw-gtk3` directly and layers our named-color overrides from `src/gtk-3.0/_base.scss`.
+- **Icon theme**: Copied verbatim into `build/icons/Monolith/`. The set is neutral and variant-independent, so one theme serves all four; `Inherits=Adwaita` covers everything it does not override.
 - **Editor schemes**: Rewrites upstream's Adwaita GtkSourceView schemes with our neutral greys and editor surfaces, leaving syntax colors untouched. Output lands in `build/schemes/`.
 - **GNOME Shell**: Compiles from upstream Shell Sass, applying neutral base variables and substituting runtime accent keywords. The User Themes extension loads the resulting `gnome-shell.css` directly.
 

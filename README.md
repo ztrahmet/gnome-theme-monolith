@@ -34,6 +34,10 @@ monolith-theme --uninstall          # Revert and uninstall
 
 Both are recolorings, not restyling. The accent is a plain light gray, and anything drawn on top of it — label text, checkmarks, the switch dot — takes the window's own background color, so accented elements stay monochrome. Status colors (error, warning, success) remain native.
 
+### Icons
+
+A **Monolith** icon theme recolors Adwaita's folder icons to match, and inherits Adwaita for everything else. It installs and applies alongside the theme.
+
 ### Editor Schemes
 
 GtkSourceView apps (Text Editor, Builder) choose their colour scheme independently of the GTK theme, so their text area otherwise keeps Adwaita's tint. Monolith installs matching schemes alongside the themes, and on install switches any app still on the Adwaita default over to them. A scheme you picked yourself is never overridden. Use `monolith-theme --schemes` to apply everywhere, or `--no-schemes` to revert. Syntax colors stay native.

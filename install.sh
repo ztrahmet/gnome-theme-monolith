@@ -33,6 +33,7 @@ RAW_URL="https://raw.githubusercontent.com/$REPO/main/install.sh"
 dest="${XDG_DATA_HOME:-$HOME/.local/share}/themes"
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 overlay="$config/gtk-4.0/gtk.css"
+ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
 SCHEMES_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/gtksourceview-5/styles"
 
 # Apps exposing a GtkSourceView scheme setting, as schema:key. A schema that is
@@ -344,6 +345,8 @@ apply_theme() {
     warn "Shell theme skipped — User Themes extension not installed"
   fi
 
+  apply_icons
+
   local src="$dest/$variant/gtk-4.0/libadwaita.css"
   if [ -f "$src" ]; then
     mkdir -p "$config/gtk-4.0"
@@ -413,9 +416,35 @@ schemes_installed() { [ -e "$SCHEMES_DIR/Monolith.xml" ]; }
 # Themes and schemes install together, so both entry points stay in step.
 install_payload() {
   install_themes || return 1
+  install_icons "$(dirname "$themes_src")/icons"
   install_schemes "$(dirname "$themes_src")/schemes"
   schemes_installed && adopt_schemes "$(scheme_for "$(variant_for "$(default_theme)")")"
   return 0
+}
+
+icons_installed() { [ -d "$ICONS_DIR/Monolith" ]; }
+
+install_icons() {  # source-dir
+  [ -d "$1/Monolith" ] || return 0
+  mkdir -p "$ICONS_DIR" || { warn "Could not create $ICONS_DIR"; return 0; }
+  rm -rf "$ICONS_DIR/Monolith"
+  # -a keeps the folder-open symlink a symlink.
+  cp -a "$1/Monolith" "$ICONS_DIR/" 2>/dev/null \
+    || { warn "Could not install the icon theme."; return 0; }
+  ok "icon theme → $ICONS_DIR/Monolith"
+}
+
+apply_icons() {
+  icons_installed || return 0
+  gsettings set org.gnome.desktop.interface icon-theme Monolith 2>/dev/null \
+    && ok "Icon theme set" || warn "Could not set icon-theme"
+}
+
+remove_icons() {
+  case "$(gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null | tr -d "'")" in
+    Monolith) gsettings reset org.gnome.desktop.interface icon-theme 2>/dev/null ;;
+  esac
+  rm -rf "$ICONS_DIR/Monolith"
 }
 
 install_schemes() {  # source-dir
@@ -504,6 +533,9 @@ do_uninstall() {
   for tree in $(installed_themes); do
     rm -rf "$tree"; ok "Removed $(basename "$tree")"
   done
+  if icons_installed; then
+    remove_icons; ok "Removed the icon theme"
+  fi
   if schemes_installed; then
     remove_schemes; ok "Removed the editor schemes"
   fi
@@ -538,6 +570,11 @@ show_status() {
     [ -n "$(flatpak override --user --show 2>/dev/null)" ] \
       && printf '  %-16s %s\n' "flatpak" "access granted" \
       || printf '  %-16s %s\n' "flatpak" "no access"
+  fi
+  if icons_installed; then
+    printf '  %-16s %s\n' "icon theme" "$(gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null)"
+  else
+    printf '  %-16s %s\n' "icon theme" "not installed"
   fi
   if schemes_installed; then
     printf '  %-16s %s\n' "editor schemes" "installed"

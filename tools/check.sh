@@ -178,6 +178,24 @@ for flag in --status --help; do
   fi
 done
 
+# 8. Icon theme: every declared directory must exist and hold icons.
+icons="$root/build/icons/Monolith"
+if [ ! -f "$icons/index.theme" ]; then
+  fail "icon theme index.theme missing"
+else
+  icons_ok=1
+  for d in $(sed -n 's/^Directories=//p' "$icons/index.theme" | tr ',' ' '); do
+    if [ ! -d "$icons/$d" ]; then
+      fail "icon theme declares $d but the directory is missing"; icons_ok=0
+    elif [ -z "$(ls -A "$icons/$d")" ]; then
+      fail "icon theme directory $d is empty"; icons_ok=0
+    elif ! grep -q "^\[$d\]" "$icons/index.theme"; then
+      fail "icon theme has no [$d] section"; icons_ok=0
+    fi
+  done
+  [ "$icons_ok" -eq 1 ] && ok "icon theme directories are consistent"
+fi
+
 if [ $failed -eq 0 ]; then
   echo "all checks passed"
   exit 0
