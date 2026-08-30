@@ -21,6 +21,7 @@ tools/
   build.sh                  Sass compilation & theme tree assembly
   check.sh                  Pure Bash QA check script
   schemes.sh                GtkSourceView scheme generation
+  preview.sh                Renders docs/previews/ from the compiled palette
   fetch-upstream.sh         Fetches pinned upstream sources
   package.sh                Builds release packages
 ```

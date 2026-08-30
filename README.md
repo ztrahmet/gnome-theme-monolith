@@ -4,6 +4,11 @@ A clean monochrome GTK and GNOME Shell theme for GNOME ≥ 48.
 
 Removes Adwaita's default blue cast on neutral surfaces, offering pure neutral grays (**Classic**) and true pitch-black surfaces (**Black**).
 
+| | |
+|---|---|
+| **Monolith-Classic**<br>![Monolith Classic](docs/previews/monolith-classic.png) | **Monolith-Classic-dark**<br>![Monolith Classic Dark](docs/previews/monolith-classic-dark.png) |
+| **Monolith-Black**<br>![Monolith Black](docs/previews/monolith-black.png) | **Monolith-Black-dark**<br>![Monolith Black Dark](docs/previews/monolith-black-dark.png) |
+
 ## Installation
 
 ```bash
@@ -61,6 +66,7 @@ make check       # Run the test suite
 make install     # Install from source
 make dist        # Create release archives in dist/
 make clean       # Clean build artifacts
+make preview     # Regenerate docs/previews/ (needs ImageMagick)
 ```
 
 **Requirements**: `sassc`, `make`, `curl`, `tar`, `zip`.

@@ -1,6 +1,6 @@
 NAME := Monolith
 
-.PHONY: all fetch build check install uninstall dist clean distclean
+.PHONY: all fetch build check install uninstall dist preview clean distclean
 
 all: build
 
@@ -18,6 +18,9 @@ check: build
 
 dist: build
 	@tools/package.sh
+
+preview: build
+	@tools/preview.sh
 
 install: build
 	@./install.sh --install
