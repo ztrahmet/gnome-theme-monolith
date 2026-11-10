@@ -46,9 +46,9 @@ fetch_adw_gtk3() {
 }
 
 mkdir -p "$vendor"
-fetch GNOME/libadwaita  1.9.3 src/stylesheet "$vendor/libadwaita"
-fetch GNOME/gnome-shell 50.4  data/theme     "$vendor/gnome-shell"
-fetch GNOME/gtksourceview 5.20.0 data/styles "$vendor/gtksourceview"
+fetch GNOME/libadwaita  1.10.0 src/stylesheet "$vendor/libadwaita"
+fetch GNOME/gnome-shell 51.1   data/theme     "$vendor/gnome-shell"
+fetch GNOME/gtksourceview 5.22.0 data/styles "$vendor/gtksourceview"
 
 fetch_adw_gtk3
 
