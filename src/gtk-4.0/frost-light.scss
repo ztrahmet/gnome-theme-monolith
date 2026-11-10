@@ -1,0 +1,5 @@
+// Monolith — GTK 4 stylesheet: frost-light.
+@import "colors/frost-light";
+@import "emit";
+
+@include emit-gtk4();

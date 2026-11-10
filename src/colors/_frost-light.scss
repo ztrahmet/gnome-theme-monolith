@@ -1,0 +1,78 @@
+// Monolith Frost — light variant (translucent for Blur My Shell).
+// Neutral grays with translucent window, sidebar, and view surfaces. Monochrome accent.
+
+// ── GTK named colors ────────────────────────────────────────────────────
+$window-bg-color: rgba(250, 250, 250, .85);
+$window-fg-color: rgba(0, 0, 0, .8);
+$view-bg-color: rgba(255, 255, 255, .85);
+$view-fg-color: rgba(0, 0, 0, .8);
+$headerbar-bg-color: rgba(255, 255, 255, .80);
+$headerbar-fg-color: rgba(0, 0, 0, .8);
+$headerbar-border-color: rgba(0, 0, 0, .8);
+$headerbar-backdrop-color: rgba(250, 250, 250, .85);
+$headerbar-shade-color: rgba(0, 0, 0, .12);
+$headerbar-darker-shade-color: rgba(0, 0, 0, .12);
+$sidebar-bg-color: rgba(235, 235, 235, .70);
+$sidebar-fg-color: rgba(0, 0, 0, .8);
+$sidebar-backdrop-color: rgba(242, 242, 242, .70);
+$sidebar-shade-color: rgba(0, 0, 0, .07);
+$sidebar-border-color: rgba(0, 0, 0, .07);
+$secondary-sidebar-bg-color: rgba(243, 243, 243, .70);
+$secondary-sidebar-fg-color: rgba(0, 0, 0, .8);
+$secondary-sidebar-backdrop-color: rgba(246, 246, 246, .70);
+$secondary-sidebar-shade-color: rgba(0, 0, 0, .07);
+$secondary-sidebar-border-color: rgba(0, 0, 0, .07);
+$card-bg-color: rgba(255, 255, 255, .65);
+$card-fg-color: rgba(0, 0, 0, .8);
+$card-shade-color: rgba(0, 0, 0, .07);
+$dialog-bg-color: rgba(250, 250, 250, .94);
+$dialog-fg-color: rgba(0, 0, 0, .8);
+$popover-bg-color: rgba(255, 255, 255, .94);
+$popover-fg-color: rgba(0, 0, 0, .8);
+$popover-shade-color: rgba(0, 0, 0, .07);
+$thumbnail-bg-color: rgba(255, 255, 255, .85);
+$thumbnail-fg-color: rgba(0, 0, 0, .8);
+$shade-color: rgba(0, 0, 0, .07);
+$scrollbar-outline-color: #ffffff;
+$accent-bg-color: #242424;
+$accent-fg-color: #fafafa;
+
+// ── Custom properties (vars) ────────────────────────────────────────────
+$active-toggle-bg-color: #ffffff;
+$active-toggle-fg-color: rgba(0, 0, 0, .8);
+$overview-bg-color: #f3f3f3;
+$overview-fg-color: rgba(0, 0, 0, .8);
+$border-alpha: .15;
+
+// ── Palette tokens (de-tinted GNOME neutrals) ───────────────────────────
+$light-1: #ffffff;
+$light-2: #f6f6f6;
+$light-3: #dddddd;
+$light-4: #c0c0c0;
+$light-5: #999999;
+$dark-1: #777777;
+$dark-2: #5e5e5e;
+$dark-3: #383838;
+$dark-4: #242424;
+$dark-5: #000000;
+
+// ── Chrome (libadwaita overrides) ───────────────────────────────────────
+$toast-bg-color: #505050;
+$tooltip-bg-color: rgba(0, 0, 0, .8);
+$window-outline-color: rgba(255, 255, 255, .07);
+
+// ── GTK 3 specific ─────────────────────────────────────────────────────
+$borders: rgba(0, 0, 0, .15);
+$insensitive-bg-color: #f2f2f2;
+$insensitive-fg-color: rgba(0, 0, 0, .4);
+
+// ── GNOME Shell bases (kept solid as Blur My Shell manages Shell directly)
+$shell_base_color: #ffffff;
+$shell_bg_color: #fafafa;
+$shell_fg_color: #222222;
+$shell_osd_bg_color: #2e2e2e;
+$shell_system_base_color: #222222;
+$shell_system_fg_color: #fafafa;
+$shell_panel_bg_color: #fafafa;
+$shell_panel_fg_color: #222222;
+$shell_card_bg_color: #ffffff;

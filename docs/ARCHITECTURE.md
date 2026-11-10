@@ -9,6 +9,8 @@ src/
   colors/
     _classic-light.scss     Flat variables for Classic light
     _classic-dark.scss      Flat variables for Classic dark
+    _frost-light.scss       Flat variables for Frost light (translucent for Blur My Shell)
+    _frost-dark.scss        Flat variables for Frost dark (translucent for Blur My Shell)
     _black.scss             Flat variables for Pitch Black
   _emit.scss                GTK 4 token emission mixin
   gtk-4.0/                  GTK 4 entry points
@@ -28,7 +30,7 @@ tools/
 
 ## Build Pipeline
 
-The build script compiles 3 CSS variants and assembles 4 theme packages (`Monolith-Classic`, `Monolith-Classic-dark`, `Monolith-Black`, `Monolith-Black-dark`):
+The build script compiles 5 CSS variants and assembles 6 theme packages (`Monolith-Classic`, `Monolith-Classic-dark`, `Monolith-Frost`, `Monolith-Frost-dark`, `Monolith-Black`, `Monolith-Black-dark`):
 
 - **GTK 4**: Compiles each variant with `sassc`. Assembles `gtk.css` (with Default base import) for plain GTK 4 apps, and `libadwaita.css` overlay (with prefers-color-scheme media queries for paired themes) for libadwaita apps.
 - **GTK 3**: Bundles upstream `adw-gtk3` directly and layers our named-color overrides from `src/gtk-3.0/_base.scss`.

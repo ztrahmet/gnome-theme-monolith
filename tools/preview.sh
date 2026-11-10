@@ -180,3 +180,5 @@ render black         "Monolith Black"        monolith-black
 # Monolith-Black-dark is the same theme under a second name, for tools that
 # blindly append -dark. Same palette in, so the same image out.
 render black         "Monolith Black Dark"   monolith-black-dark
+render frost-light   "Monolith Frost"        monolith-frost
+render frost-dark    "Monolith Frost Dark"   monolith-frost-dark

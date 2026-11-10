@@ -13,7 +13,7 @@ The rest of this file covers installing by hand from this archive.
 ## What's in here
 
 ```
-themes/     Monolith-Classic, -Classic-dark, -Black, -Black-dark
+themes/     Monolith-Classic, -Classic-dark, -Frost, -Frost-dark, -Black, -Black-dark
 icons/      Monolith icon theme (folder icons; inherits Adwaita)
 schemes/    GtkSourceView editor schemes
 ```
@@ -32,7 +32,7 @@ cp     schemes/*.xml   ~/.local/share/gtksourceview-5/styles/
 
 > Use `cp -a` for the icons — `icons/Monolith/scalable/status/folder-open.svg` is a symlink and must stay one.
 
-Then select a variant — `Monolith-Classic` (light), `Monolith-Classic-dark`, `Monolith-Black`, or `Monolith-Black-dark`. Replace the name below with your choice:
+Then select a variant — `Monolith-Classic`, `Monolith-Classic-dark`, `Monolith-Frost`, `Monolith-Frost-dark`, `Monolith-Black`, or `Monolith-Black-dark`. Replace the name below with your choice:
 
 ```bash
 gsettings set org.gnome.desktop.interface gtk-theme   'Monolith-Classic-dark'

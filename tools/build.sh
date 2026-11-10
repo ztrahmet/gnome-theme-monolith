@@ -15,7 +15,7 @@ command -v sassc >/dev/null || { echo "error: sassc not found" >&2; exit 1; }
 rm -rf "$build"
 mkdir -p "$css" "$themes"
 
-VARIANTS="classic-light classic-dark black"
+VARIANTS="classic-light classic-dark black frost-light frost-dark"
 
 scheme_of() { case "$1" in *-light) echo light ;; *) echo dark ;; esac; }
 adw_base()  { case "$(scheme_of "$1")" in light) echo adw-gtk3 ;; *) echo adw-gtk3-dark ;; esac; }
@@ -110,6 +110,8 @@ assemble Monolith-Classic      classic-light "Monolith Classic, light" classic-d
 assemble Monolith-Classic-dark classic-dark  "Monolith Classic, dark"  classic-light
 assemble Monolith-Black        black         "Monolith Black"
 assemble Monolith-Black-dark   black         "Monolith Black"
+assemble Monolith-Frost        frost-light   "Monolith Frost, light"   frost-dark
+assemble Monolith-Frost-dark   frost-dark    "Monolith Frost, dark"    frost-light
 
 "$root/tools/schemes.sh"
 

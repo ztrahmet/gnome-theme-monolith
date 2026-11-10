@@ -5,6 +5,7 @@ Monolith defines its color palettes directly as flat Sass variables under `src/c
 ## Styles
 
 - **Classic**: De-tints GNOME Adwaita neutral tokens, removing the subtle blue cast to produce clean neutral grays. Available in light (`_classic-light.scss`) and dark (`_classic-dark.scss`).
+- **Frost**: Frosted neutral surfaces with translucent window, sidebar, and view areas for Blur My Shell. Available in light (`_frost-light.scss`) and dark (`_frost-dark.scss`).
 - **Black**: A true black dark palette (`#000000` canvas) with layered dark surfaces and high contrast text/borders (`_black.scss`).
 
 ## Structure

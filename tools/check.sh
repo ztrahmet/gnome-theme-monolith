@@ -28,8 +28,8 @@ if [ ! -d "$themes" ] || [ -z "$(ls -A "$themes" 2>/dev/null)" ]; then
   "$root/tools/build.sh" >/dev/null
 fi
 
-# 2. Verify all 4 expected theme packages
-EXPECTED_THEMES="Monolith-Classic Monolith-Classic-dark Monolith-Black Monolith-Black-dark"
+# 2. Verify all expected theme packages
+EXPECTED_THEMES="Monolith-Classic Monolith-Classic-dark Monolith-Black Monolith-Black-dark Monolith-Frost Monolith-Frost-dark"
 REQUIRED_FILES=(
   "index.theme"
   "LICENSE.adw-gtk3"
@@ -140,7 +140,7 @@ done
 
 # 5. Editor style schemes: present, well-formed, and free of tinted greys.
 schemes="$root/build/schemes"
-for id in Monolith Monolith-dark Monolith-black; do
+for id in Monolith Monolith-dark Monolith-black Monolith-frost Monolith-frost-dark; do
   f="$schemes/$id.xml"
   if [ ! -f "$f" ]; then
     fail "style scheme $id.xml missing"
@@ -156,16 +156,21 @@ for id in Monolith Monolith-dark Monolith-black; do
 done
 
 # 6. The theme's defining rule: what sits on an accent matches the window behind it.
-for v in classic-light classic-dark black; do
+for v in classic-light classic-dark black frost-light frost-dark; do
   f="$root/build/css/gtk4-$v.css"
   [ -f "$f" ] || continue
   afg="$(sed -n 's/.*--accent-fg-color: \([^;]*\);.*/\1/p' "$f" | head -1)"
   wbg="$(sed -n 's/.*--window-bg-color: \([^;]*\);.*/\1/p' "$f" | head -1)"
-  if [ -n "$afg" ] && [ "$afg" = "$wbg" ]; then
-    ok "$v accent foreground matches the window background"
-  else
-    fail "$v accent-fg ($afg) does not match window-bg ($wbg)"
-  fi
+  case "$v" in
+    frost-light) [ "$afg" = "#fafafa" ] && ok "$v accent foreground is solid high contrast" || fail "$v accent-fg ($afg) expected #fafafa" ;;
+    frost-dark)  [ "$afg" = "#222222" ] && ok "$v accent foreground is solid high contrast" || fail "$v accent-fg ($afg) expected #222222" ;;
+    *)
+      if [ -n "$afg" ] && [ "$afg" = "$wbg" ]; then
+        ok "$v accent foreground matches the window background"
+      else
+        fail "$v accent-fg ($afg) does not match window-bg ($wbg)"
+      fi ;;
+  esac
 done
 
 # 7. Read-only installer paths must run clean. bash -n cannot catch an unbound

@@ -35,6 +35,7 @@ monolith-theme --uninstall          # Revert and uninstall
 ## Styles
 
 - **Monolith-Classic**: GNOME's own palette with the blue cast removed, leaving neutral grays (Light & Dark).
+- **Monolith-Frost**: Frosted neutral surfaces for the Blur My Shell extension (Light & Dark).
 - **Monolith-Black**: Pitch-black canvas with dark neutral surfaces (Dark).
 
 Both are recolorings, not restyling. The accent is a plain light gray, and anything drawn on top of it — label text, checkmarks, the switch dot — takes the window's own background color, so accented elements stay monochrome. Status colors (error, warning, success) remain native.

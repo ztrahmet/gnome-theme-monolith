@@ -17,16 +17,18 @@ mkdir -p "$out"
 
 # The ramp is identical across variants, so any compiled sheet will do.
 ramp() { sed -n "s/.*@define-color $2 \(#[0-9a-f]\{6\}\);.*/\1/p" "$css/gtk4-$1.css" | head -1; }
-view() { sed -n "s/.*--view-bg-color: \(#[0-9a-f]\{6\}\);.*/\1/p" "$css/gtk4-$1.css" | head -1; }
+view() { sed -n "s/.*--view-bg-color: \([^;]*\);.*/\1/p" "$css/gtk4-$1.css" | head -1; }
 
 L2="$(ramp classic-light light_2)"; L3="$(ramp classic-light light_3)"
 L4="$(ramp classic-light light_4)"; L5="$(ramp classic-light light_5)"
 DARK_BG="$(view classic-dark)";      DARK_ALT="$(ramp classic-dark dark_4)"
 BLACK_BG="$(view black)";            BLACK_ALT="$(ramp black dark_4)"
+FROST_LIGHT_BG="$(view frost-light)"
+FROST_DARK_BG="$(view frost-dark)";  FROST_DARK_ALT="rgba(46, 46, 46, .70)"
 
 # An unreadable value would otherwise be substituted in as value="", which is
 # still well-formed XML and would pass unnoticed.
-for _v in L2 L3 L4 L5 DARK_BG DARK_ALT BLACK_BG BLACK_ALT; do
+for _v in L2 L3 L4 L5 DARK_BG DARK_ALT BLACK_BG BLACK_ALT FROST_LIGHT_BG FROST_DARK_BG FROST_DARK_ALT; do
   [ -n "${!_v}" ] || { echo "error: could not read $_v from build/css" >&2; exit 1; }
 done
 
@@ -48,7 +50,10 @@ generate() { # base id name counterpart-prop old-counterpart counterpart [bg alt
   script+="$(recolor light_3 "$L2")$(recolor light_4 "$L3")$(recolor light_5 "$L4")"
   script+="$(recolor light_6 '#b0b0b0')$(recolor light_7 "$L5")"
   local n; for n in 1 2 3 4 5; do script+="$(recolor "dark_$n" "$(neutral "dark_$n")")"; done
-  [ -n "$bg" ]  && script+="$(recolor libadwaita-dark "$bg")"
+  if [ -n "$bg" ]; then
+    [ "$base" = "Adwaita.xml" ] && script+="$(recolor light_1 "$bg")"
+    [ "$base" = "Adwaita-dark.xml" ] && script+="$(recolor libadwaita-dark "$bg")"
+  fi
   [ -n "$alt" ] && script+="$(recolor libadwaita-dark-alt "$alt")"
   sed -e "$script" "$vendor/$base" > "$out/$id.xml"
   chmod 644 "$out/$id.xml"
@@ -56,9 +61,13 @@ generate() { # base id name counterpart-prop old-counterpart counterpart [bg alt
 }
 
 echo "generating style schemes:"
-generate Adwaita.xml      Monolith       "Monolith"       dark-variant  Adwaita-dark Monolith-dark
-generate Adwaita-dark.xml Monolith-dark  "Monolith Dark"  light-variant Adwaita      Monolith \
+generate Adwaita.xml      Monolith            "Monolith"            dark-variant  Adwaita-dark Monolith-dark
+generate Adwaita-dark.xml Monolith-dark       "Monolith Dark"       light-variant Adwaita      Monolith \
   "$DARK_BG" "$DARK_ALT"
 # Black has no light form, so it stays itself when the desktop turns light.
-generate Adwaita-dark.xml Monolith-black "Monolith Black" light-variant Adwaita      Monolith-black \
+generate Adwaita-dark.xml Monolith-black      "Monolith Black"      light-variant Adwaita      Monolith-black \
   "$BLACK_BG" "$BLACK_ALT"
+generate Adwaita.xml      Monolith-frost      "Monolith Frost"      dark-variant  Adwaita-dark Monolith-frost-dark \
+  "$FROST_LIGHT_BG"
+generate Adwaita-dark.xml Monolith-frost-dark "Monolith Frost Dark" light-variant Adwaita      Monolith-frost \
+  "$FROST_DARK_BG" "$FROST_DARK_ALT"

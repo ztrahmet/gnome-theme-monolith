@@ -405,9 +405,11 @@ flatpak_support() {
 # Adwaita default only; a scheme the user picked themselves is never overridden.
 scheme_for() {
   case "$1" in
-    Monolith-Black*) echo Monolith-black ;;
-    *-dark)          echo Monolith-dark ;;
-    *)               echo Monolith ;;
+    Monolith-Black*)      echo Monolith-black ;;
+    Monolith-Frost-dark*) echo Monolith-frost-dark ;;
+    Monolith-Frost*)      echo Monolith-frost ;;
+    *-dark)               echo Monolith-dark ;;
+    *)                    echo Monolith ;;
   esac
 }
 
@@ -655,6 +657,7 @@ flatpak_flow() {
 choose_theme_flow() {
   menu "Which theme?" \
     "Monolith-Classic|GNOME's neutrals, cast removed. Monochrome accent." \
+    "Monolith-Frost|Translucent neutral surfaces for Blur My Shell." \
     "Monolith-Black|True black. Monochrome accent." \
     "Back|Return without changing anything"
   [ "$CHOICE" = "Back" ] && return 0
@@ -674,6 +677,8 @@ scheme_flow() {
     "Match theme|Apply $match to match the active theme" \
     "Monolith|Classic light neutral scheme" \
     "Monolith-dark|Classic dark neutral scheme" \
+    "Monolith-frost|Frosted light neutral scheme" \
+    "Monolith-frost-dark|Frosted dark neutral scheme" \
     "Monolith-black|Pitch black neutral scheme" \
     "Reset|Return apps to their own default scheme" \
     "Back|Return without changing anything"
