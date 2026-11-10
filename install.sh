@@ -664,6 +664,26 @@ choose_theme_flow() {
   apply_theme "$variant"
 }
 
+scheme_flow() {
+  if ! schemes_installed; then
+    step "Editor scheme"; warn "Editor schemes are not installed."; return 0
+  fi
+  local match
+  match="$(scheme_for "$(variant_for "$(default_theme)")")"
+  menu "Editor style schemes for GtkSourceView apps:" \
+    "Match theme|Apply $match to match the active theme" \
+    "Monolith|Classic light neutral scheme" \
+    "Monolith-dark|Classic dark neutral scheme" \
+    "Monolith-black|Pitch black neutral scheme" \
+    "Reset|Return apps to their own default scheme" \
+    "Back|Return without changing anything"
+  case "$CHOICE" in
+    "Match theme") apply_schemes "$match" ;;
+    Monolith*)     apply_schemes "$CHOICE" ;;
+    Reset)         reset_schemes; ok "Editors reset to their default scheme" ;;
+  esac
+}
+
 # Updating means fetching a newer release, which is the installer's job, so it
 # is handed back rather than duplicated here.
 update_flow() {
